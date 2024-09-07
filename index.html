@@ -242,7 +242,7 @@
         }
 
         .telegram-icon i {
-            color: #87CEEB;
+            color: #007bb5;
         }
 
         .telegram-icon:hover {
@@ -393,6 +393,8 @@
 .developer-info p {
     margin: 0; /* إزالة الهوامش الافتراضية للنص */
 }
+
+
     </style>
 </head>
 <body class="dark-mode">
@@ -424,9 +426,11 @@
     <div class="main-content" id="mainContent">
         <!-- أقسام الأفلام -->
         <div class="section-container" id="home">
-            <div class="section-title">مضاف حديثًا</div>
+            <div class="section-title">أحدث الافلام</div>
             <div class="episode-list" id="actionSection">
                 <!-- الأفلام هنا -->
+                
+                
                                 <div class="episode-item" data-title="The Goat Life حياة الماعز">
                     <img src="https://media.fushaar.com/media/2024/08/vwRkVhvJuAFz4i8udXMNkcJCztc-229x337.jpg" alt="صورة الحلقة 1">
                     <div class="details">
@@ -436,8 +440,7 @@
                         </button>
                     </div>
                 </div>
-                
-                                     <div class="episode-item" data-title="The Union الاتحاد">
+                                             <div class="episode-item" data-title="The Union الاتحاد">
                 <img src="https://media.fushaar.com/media/2024/08/kWGVB2x76Bo5GWCR31W41Pmz3PH-229x337.jpg" alt="صورة الحلقة 2">
                 <div class="details">
                     <span>الاتحاد</span>
@@ -898,7 +901,7 @@
                 </div>
                 
             </div>
-        </div>
+        </div>        
 
      </div>
         </div>
@@ -977,7 +980,7 @@
     </div>
 
     <script>
-        function toggleTheme() {
+function toggleTheme() {
             var body = document.body;
             body.classList.toggle('dark-mode');
             body.classList.toggle('light-mode');
@@ -1043,9 +1046,27 @@
             toggleSidebar();
         }
 
+        function openModal(videoUrl) {
+            var modal = document.getElementById('videoModal');
+            var modalVideo = document.getElementById('modalVideo');
+
+            // تعيين رابط الفيديو
+            modalVideo.src = videoUrl;
+
+            // إظهار النافذة المنبثقة
+            modal.style.display = 'flex';
+        }
+
         function closeModal() {
-            document.getElementById('videoModal').style.display = 'none';
-            document.querySelector('.blur-background').classList.remove('blur-background');
+            var modal = document.getElementById('videoModal');
+            var modalVideo = document.getElementById('modalVideo');
+
+            // إخفاء النافذة المنبثقة
+            modal.style.display = 'none';
+
+            // إيقاف الفيديو
+            modalVideo.pause();
+            modalVideo.currentTime = 0;
         }
     </script>
 </body>
